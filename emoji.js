@@ -1,58 +1,53 @@
-const searchField = document.getElementById("searchBar");
-const submitButton = document.getElementById("submitButton");
+const searchField = document.getElementById("searchBar")
+const submitButton = document.getElementById("submitButton")
 console.log(searchField, submitButton);
 
-const searchEmoji = () => {
+const searchEmoji = ()=>{
+  
+   
+    const searchFieldValue = searchField.value;
+    const filteredList = emojiList.filter((e)=>{
+        if(e.aliases.some(ele=>ele.startsWith(searchFieldValue))){
+            return true;
+        }
+        if(e.tags.some(ele=>ele.startsWith(searchFieldValue))){
+            return true;
+        }
+    })
 
-if(searchField.value !== ""){
-submitButton.style.display = "flex"
-}else{
-submitButton.style.display = "none"
+    const searchResultContainer = document.getElementById("searchResultContainer")
+    
+    searchResultContainer.innerText = "";
 
-}
-console.log(submitButton)
+    filteredList.map((ele)=>{
+        const new_row = document.createElement('tr');
+        const emoji = document.createElement("td")
+        const description = document.createElement("td")
+        const category = document.createElement("td")
+       
 
+        emoji.innerText = ele.emoji;
+        description.innerText = ele.description;
+        category.innerText = ele.category;
+    
+        emoji.classList.add("emoji");
+        description.classList.add("description");
+        category.classList.add("category");
 
-  console.log("function called");
-  const searchFieldValue = searchField.value;
-
-  console.log(emojiList);
-  const filteredList = emojiList.filter((e) => {
-    if (e.aliases.some((ele) => ele.startsWith(searchFieldValue))) {
-      return true;
-    }
-    if (e.tags.some((ele) => ele.startsWith(searchFieldValue))) {
-      return true;
-    }
-  });
-  const searchResultContainer = document.getElementById(
-    "searchResultContainer"
-  );
-  searchResultContainer.innerText = "";
-  filteredList.map((ele) => {
-    console.log(ele);
-
-    const emoji = document.createElement("h1");
-    const description = document.createElement("p");
-    const category = document.createElement("h3");
-
-    emoji.innerText = ele.emoji;
-    description.innerText = ele.description;
-    category.innerText = ele.category;
-
-    searchResultContainer.appendChild(emoji);
-    searchResultContainer.appendChild(category);
-    searchResultContainer.appendChild(description);
-  });
+     
+        new_row.appendChild(emoji);
+        new_row.appendChild(category);
+        new_row.appendChild(description);
+   
+        searchResultContainer.appendChild(new_row);
+    });
+    
 };
 
 
-if(searchField.value == ""){
+submitButton.addEventListener("click" , searchEmoji);
+searchField.addEventListener("keyup", searchEmoji)
 
-	submitButton.style.display = "none"
-}
 
-submitButton.addEventListener("click", searchEmoji);
-searchField.addEventListener("keyup", searchEmoji);
 
 window.onload = () => searchEmoji()

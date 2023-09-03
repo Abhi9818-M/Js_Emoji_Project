@@ -1,21 +1,66 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: cyan;
+  background-color: black;
+  font-family: 'Roboto Mono', monospace;
+}
+.main{
+  padding: 15px;
+}
+.heading{
+  font-family: cursive;
+  font-size: 40px;
+}
+.form{
+  display: flex;
+  gap: 10px;
+}
+#searchBar{
+  padding: 5px 10px;
+  border-radius: 2px;
+  border: none;
+}
+#submitButton{
+  padding: 5px 10px;
+  font-size: 15px;
+  border-radius: 2px;
+  border: none;
+
+}
+hr{
+  border-top: 2px white solid;
+}
+
+.emoji{
+  font-size: 300%;
+  width: 8rem;
+  max-width: 8rem;
+  padding-left: 10px ;
+}
+
+.category{
+  text-transform: capitalize;
+  font-size: 20px;
   
-  .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-  
-  h1 {
-    border-bottom: 2px solid black;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-  }
+}
+
+.description{
+  font-size: 20px;
+  padding-left: 200px;
+}
+
+.description::first-letter{
+  text-transform: uppercase;
+}
+
+table{
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 30px;
+}
+tr, td{
+  padding: 10px;
+  border-bottom: 1px solid #333333;
+}

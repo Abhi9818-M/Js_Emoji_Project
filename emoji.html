@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="./emoji.css">
 </head>
 <body>
-    <div class="main">
-        <h1>Emoji Searching App</h1>
-        <br />
-        <br />
-        <div>
-          <input value="" type="search" name="" id="searchBar" />
-  
-          <button id="submitButton">Search</button>
-        </div>
-        <div id="searchResultContainer"></div>
-      </div>
+  <div class="main">
+    <h1 class="heading">Emoji Search Application</h1>
+    <hr>
+    <br>
+    <div class="form">
+        <input type="search" placeholder="Emoji search" id="searchBar">
+        <input type="submit" value="search" id="submitButton">
+    </div>
+    <table>
+        <tbody id="searchResultContainer"></tbody>
+    </table>
+</div>
     <script src="./emoji.js"></script>
     <script src="./emojiList.js"></script>
 </body>
